@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Tienda Virtual</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.2.0/uuid.min.js" integrity="sha512-X0CJvcClD8EXFn5Oq8BD5lIsznKDfxb0Sf9Wr8MCCTyAEWaAAxr0Jvm3qyofsmN7eSHMZ0PPQGjVKroLAfexrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+            
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Canasta</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    
+    Canasta
+    <div id="lista-cart">
+       <!-- <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        
+    </div>
+    <div id="sub-total">
+        
+        
+    </div>
+
+  </div>
+</div>
+
+            <nav
+                class="navbar navbar-expand-sm navbar-dark bg-primary px-5"
+            >
+                <a class="navbar-brand" href="#">
+                    <img height="60px" id="logo-img" src="" alt="" class="rounded rounded-lg">
+                </a>
+                <div>
+                    <h1 class="fs-3" id="nombre-tienda"></h1>
+                </div>
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                ></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" aria-current="page"
+                                >Home <span class="visually-hidden">(current)</span></a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                    
+                    </ul>
+
+                    <button  data-bs-toggle="modal" data-bs-target="#modal-create-tienda" onclick="" id="btm-tienda-create" class="btn btn-dark mx-3 btn-lg">
+                        Crear Tienda
+                    </button>
+
+                    <div class="d-flex my-2 my-lg-0">
+                        <input
+                            class="form-control me-sm-2"
+                            type="text"
+                            placeholder="Buscar.."
+                            id="input-search"
+                        />
+
+                        <button onclick="tiendaDojoPc.searchProduct()" class="btn btn-outline-dark my-2 my-sm-0" >
+                            Buscar
+                        </button>
+
+                    </div>
+
+
+                    <!-- perfil del usuario -->
+                    <div id="perfil-active" style="display: none;">
+                        <ul>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="dropdownId"
+                                    data-bs-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    >
+                                    <img id="user-img" height="55px" src="" alt="">
+                                    <span class="fs-3 text-white" id="user-name"></span>
+                                    </a
+                                >
+                                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                    <a class="dropdown-item" href="#">Perfil</a>
+                                    <a class="dropdown-item" href="#">Mis pedidos</a>
+                                    <a onclick="tiendaDojoPc.closeLogin()" class="dropdown-item" href="#">Cerrar sesion</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- perfil del usuario -->
+
+                    
+                    <div id="btn-login">
+                        <a href="login.html">
+                            <button class="btn btn-danger ms-3">
+                                Login
+                            </button>
+                        </a>
+                    </div>
+
+                    <div>
+                        <button <button class="btn btn-primary" type="button"  >Toggle right offcanvas</button> class="btn btn-success ms-3">
+                            <i class="bi bi-bag-heart-fill fs-3"></i>
+                            <span id="total-cart">0</span>
+                        </button>
+                    </div>
+                 
+                 
+
+                </div>
+            </nav>
+            
+
+
+        </header>
+        
+        <main>
+        
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li
+                        data-bs-target="#carouselId"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="First slide"
+                    ></li>
+                    <li
+                        data-bs-target="#carouselId"
+                        data-bs-slide-to="1"
+                        aria-label="Second slide"
+                    ></li>
+                    <li
+                        data-bs-target="#carouselId"
+                        data-bs-slide-to="2"
+                        aria-label="Third slide"
+                    ></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img
+                            id="banner-img"
+                            src=""
+                            class="w-100 d-block"
+                            alt="First slide"
+                        />
+                    </div>
+            
+                </div>
+                <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselId"
+                    data-bs-slide="prev"
+                >
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselId"
+                    data-bs-slide="next"
+                >
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+
+
+            <div class="container">
+                
+                <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modal-create-product">
+                    Crear Producto
+                </button>
+
+                <div id="catalogo-product" class="m-3 d-flex flex-wrap gap-3 justify-content-center">
+
+
+                </div>
+
+            </div>
+
+
+   
+        
+        <!-- Modal Body -->
+        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+        <div
+            class="modal fade"
+            id="modal-create-tienda"
+            tabindex="-1"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            
+            role="dialog"
+            aria-labelledby="modalTitleId"
+            aria-hidden="true"
+        >
+            <div
+                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
+                role="document"
+            >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Crear Tienda Virtual
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nombre de la Tienda</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name=""
+                                    id="name-tienda"
+                                    aria-describedby="helpId"
+                                    placeholder=""
+                                />
+                                <small id="helpId" class="form-text text-muted">Help text</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Logotipo de la Tienda</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name=""
+                                    id="logotipo-tienda"
+                                    aria-describedby="helpId"
+                                    placeholder=""
+                                />
+                                <small id="helpId" class="form-text text-muted">Help text</small>
+                            </div>
+                            
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Banner de la Tienda</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name=""
+                                    id="banner-tienda"
+                                    aria-describedby="helpId"
+                                    placeholder=""
+                                />
+                                <small id="helpId" class="form-text text-muted">Help text</small>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Cancelar
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="tiendaDojoPc.crearTienda()" >
+                            Crear Tienda
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <!-- Modal Body -->
+        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+        <div
+            class="modal fade"
+            id="modal-create-product"
+            tabindex="-1"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            
+            role="dialog"
+            aria-labelledby="modalTitleId"
+            aria-hidden="true"
+        >
+            <div
+                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
+                role="document"
+            >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Crear Producto
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        
+
+                        <div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Titulo del producto</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name=""
+                                    id="product-title"
+                                    aria-describedby="helpId"
+                                    placeholder="Nombre del producto?"
+                                />
+                                <small id="helpId" class="form-text text-muted">Help text</small>
+                            </div>
+                            
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Foto del producto</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name=""
+                                    id="product-foto"
+                                    aria-describedby="helpId"
+                                    placeholder="Foto del producto?"
+                                />
+                                <small id="helpId" class="form-text text-muted">Help text</small>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Precio del producto</label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    name=""
+                                    id="product-price"
+                                    aria-describedby="helpId"
+                                    placeholder="Precio del producto?"
+                                />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Descripcion del producto</label>
+                                <textarea class="form-control" name="" id="product-info" rows="3"></textarea>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Cancelar
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="tiendaDojoPc.crearProducto()">
+                            Crear Producto
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+
+        
+        
+        </main>
+
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+
+
+        <script src="/tienda-virtual/js/app.js"></script>
+
+        <script>
+            home();
+        </script>
+
+    </body>
+</html>
